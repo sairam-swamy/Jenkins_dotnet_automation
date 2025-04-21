@@ -1,0 +1,39 @@
+UBUNTU DOTNET INSTALLATION :
+==============================
+wget https://dot.net/v1/dotnet-install.sh
+chmod +x dotnet-install.sh
+./dotnet-install.sh --channel 6.0 --install-dir $HOME/dotnet
+
+echo 'export DOTNET_ROOT=$HOME/dotnet' >> ~/.bashrc
+echo 'export PATH=$PATH:$HOME/dotnet' >> ~/.bashrc
+source ~/.bashrc
+dotnet --info
+which dotnet
+sudo mkdir -p /usr/share/dotnet
+# Move the existing dotnet installation
+sudo mv /root/dotnet/* /usr/share/dotnet/
+# Link dotnet to a common bin location
+sudo ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+
+
+azurecli : curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 
+
+perform az login in to jenkins user to access az resources
+
+sudo apt update
+sudo apt install -y openjdk-17-jdk curl unzip
+sudo systemctl enable docker --now
+
+# Jenkins install
+curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install -y jenkins
+
+# Start Jenkins
+sudo systemctl enable jenkins --now
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+
+
+/root/dotnet/dotnet
