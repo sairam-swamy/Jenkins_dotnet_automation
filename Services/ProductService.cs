@@ -12,7 +12,10 @@ public class ProductService : IProductService
             new Product { Id = 1, Name = "Wireless Mouse", Price = 25.99M },
             new Product { Id = 2, Name = "Mechanical Keyboard", Price = 89.50M },
             new Product { Id = 3, Name = "27\" Monitor", Price = 229.99M },
-            new Product { Id = 4, Name = "Printer-Monitor", Price = 259.99M }
+            new Product { Id = 4, Name = "Printer-Monitor", Price = 259.99M },
+            new Product { Id = 5, Name = "Printer-Monitor", Price = 259.99M },
+            new Product { Id = 6, Name = "Printer-Monitor", Price = 259.99M },
+            new Product { Id = 7, Name = "Printer-Monitor", Price = 259.99M }
         };
     }
 }
