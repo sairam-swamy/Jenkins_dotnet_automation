@@ -35,5 +35,16 @@ sudo systemctl enable jenkins --now
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 
+sudo usermod -a -G sudo jenkins
+sudo nano /etc/ssh/sshd_config
+PermitRootLogin yes
+PasswordAuthentication yes
 
-/root/dotnet/dotnet
+sudo mkdir -p /var/lib/jenkins/workspace
+sudo chown -R jenkins:jenkins /var/lib/jenkins
+
+kubectl create secret docker-registry acr-secret \
+  --docker-server=capgeminijenkins.azurecr.io \
+  --docker-username=capgeminijenkins \
+  --docker-password='++IhYwcMRbNlF/sRkoQ1AGvtSNS/lNhxCa2GcTL6Xj+ACRD4yMED' \
+  --docker-email=mandapaka.sairam@gmail.com
