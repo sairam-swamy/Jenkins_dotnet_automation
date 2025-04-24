@@ -19,6 +19,8 @@ spec:
         image: capgeminijenkins.azurecr.io/productapi:${BUILD_NUMBER}
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: acr-secret
 
 ---
 apiVersion: v1
